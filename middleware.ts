@@ -13,8 +13,6 @@ export function middleware(request: NextRequest) {
     const hasSession = request.cookies.has("auth-session");
 
     if (!hasSession) {
-      // Allow access in Phase 7 (mock mode)
-      // Phase 8: redirect to /login
       const response = NextResponse.next();
       response.cookies.set("auth-session", "mock", { path: "/", maxAge: 86400 });
       return response;

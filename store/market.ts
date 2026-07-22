@@ -38,7 +38,7 @@ export const createMarketSlice: StateCreator<MarketSlice, [], [], MarketSlice> =
     fearGreed: [],
     calendar: [],
     prices: {},
-    connectionStatus: "disconnected",
+    connectionStatus: "connecting",
     isLoading: false,
     error: null,
   },

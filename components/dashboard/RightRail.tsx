@@ -26,7 +26,7 @@ export default async function RightRail() {
         <RightRailSection title="Market" subtitle="Watchlist" icon={TrendingUp}>
           <div className="space-y-2 border-l-[3px] border-l-[var(--primary)]/40 pl-3">
             {watchlist.length ? watchlist.map((item) => (
-              <div key={item.symbol} className="flex items-center justify-between rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
+              <div key={item.symbol} className="flex items-center justify-between rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
                 <div>
                   <p className="text-sm font-semibold text-[var(--text)]">{item.symbol}</p>
                   <p className="text-[12px] text-[var(--muted)]">{item.name}</p>
@@ -53,7 +53,7 @@ export default async function RightRail() {
         <RightRailSection title="Momentum" subtitle="Top movers" icon={Activity}>
           <div className="space-y-2">
             {movers.map((item) => (
-              <div key={item.symbol} className="flex items-center justify-between rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
+              <div key={item.symbol} className="flex items-center justify-between rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
                 <div>
                   <p className="text-sm font-semibold text-[var(--text)]">{item.symbol}</p>
                   <p className="text-[12px] text-[var(--muted)]">{item.label}</p>
@@ -67,7 +67,7 @@ export default async function RightRail() {
         <RightRailSection title="Overview" subtitle="Market summary" icon={CircleDollarSign}>
           <div className="space-y-2">
             {marketSummary.length ? marketSummary.map((item) => (
-              <div key={item.label} className="flex items-center justify-between rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
+              <div key={item.label} className="flex items-center justify-between rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
                 <span className="text-sm text-[var(--muted)]">{item.label}</span>
                 <span className="text-sm font-medium text-[var(--text)]">{item.value}</span>
               </div>
@@ -85,7 +85,7 @@ export default async function RightRail() {
         <RightRailSection title="Sentiment" subtitle="Fear & Greed" icon={Activity}>
           <div className="space-y-2">
             {fearAndGreed.map((item) => (
-              <div key={item.label} className="flex items-center justify-between rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
+              <div key={item.label} className="flex items-center justify-between rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
                 <span className="text-sm text-[var(--muted)]">{item.label}</span>
                 <span className="text-sm font-medium text-[var(--text)]">{item.value}</span>
               </div>
@@ -96,7 +96,7 @@ export default async function RightRail() {
         <RightRailSection title="Events" subtitle="Economic calendar" icon={CalendarDays}>
           <div className="space-y-2 border-l-[3px] border-l-[var(--warning)]/40 pl-3">
             {calendar.map((item) => (
-              <div key={item.title} className="flex items-center justify-between rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
+              <div key={item.title} className="flex items-center justify-between rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
                 <div>
                   <p className="text-sm font-semibold text-[var(--text)]">{item.title}</p>
                   <p className="text-[12px] text-[var(--muted)]">{item.time}</p>
@@ -109,7 +109,7 @@ export default async function RightRail() {
 
         <button
           type="button"
-          className="flex w-full items-center justify-center gap-2 rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5 text-sm font-medium text-[var(--text)]"
+          className="flex w-full items-center justify-center gap-2 rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5 text-sm font-medium text-[var(--text)]"
         >
           Open workspace
           <ArrowRight size={15} />

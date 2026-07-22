@@ -23,7 +23,7 @@ export default function DashboardError({
       </p>
       <button
         onClick={reset}
-        className="mt-8 inline-flex items-center gap-2 rounded-[8px] bg-[var(--primary)] px-5 py-2.5 text-[var(--text-body)] font-semibold text-white transition hover:bg-[var(--primary-soft)]"
+        className="mt-8 inline-flex items-center gap-2 rounded-[var(--radius)] bg-[var(--primary)] px-5 py-2.5 text-[var(--text-body)] font-semibold text-white transition hover:bg-[var(--primary-soft)]"
       >
         <RefreshCcw size={16} />
         Try again

@@ -28,3 +28,10 @@ const mockPerformance = [
 portfolioRoutes.get("/", (c) => c.json(mockHoldings));
 portfolioRoutes.get("/allocation", (c) => c.json(mockAllocation));
 portfolioRoutes.get("/performance", (c) => c.json(mockPerformance));
+
+const mockActivity = [
+  { title: "Buy BTC", amount: "0.125 BTC", value: "$8,456.23", time: "2m ago", type: "buy" },
+  { title: "Sell ETH", amount: "1.25 ETH", value: "$4,321.00", time: "1h ago", type: "sell" },
+  { title: "Add SOL", amount: "12.5 SOL", value: "$2,335.00", time: "4h ago", type: "buy" },
+];
+portfolioRoutes.get("/activity", (c) => c.json(mockActivity));

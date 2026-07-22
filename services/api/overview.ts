@@ -1,14 +1,15 @@
 // ── Overview Service ──
 
-import type { OverviewCardProps } from "@/types";
-import { mockOverview } from "../mock/data";
-import type { ActivityItem } from "@/types";
-import { mockActivity } from "../mock/data";
+import type { OverviewCardProps, ActivityItem } from "@/types";
+import { mockOverview, mockActivity } from "../mock/data";
+import { apiFetch } from "./client";
 
 export async function getOverviewMetrics(): Promise<OverviewCardProps[]> {
-  return mockOverview;
+  const result = await apiFetch<OverviewCardProps[]>("/api/market/overview");
+  return result.success ? result.data : mockOverview;
 }
 
 export async function getRecentActivity(): Promise<ActivityItem[]> {
-  return mockActivity;
+  const result = await apiFetch<ActivityItem[]>("/api/portfolio/activity");
+  return result.success ? result.data : mockActivity;
 }

@@ -26,7 +26,7 @@ export default async function PortfolioSection({
       </div>
 
       <div className="grid gap-4 xl:grid-cols-[1.25fr_0.75fr]">
-        <Card className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4 shadow-none">
+        <Card className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">Holdings</p>
@@ -37,7 +37,7 @@ export default async function PortfolioSection({
             </div>
           </div>
 
-          <div className="mt-4 overflow-hidden rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)]">
+          <div className="mt-4 overflow-hidden rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)]">
             <table className="w-full border-collapse text-sm" aria-label="Portfolio holdings">
               <thead>
                 <tr className="border-b border-[color:var(--border)] text-[10px] uppercase tracking-[0.24em] text-[var(--muted)]">
@@ -79,7 +79,7 @@ export default async function PortfolioSection({
         </Card>
 
         <div className="space-y-4">
-          <Card className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4 shadow-none">
+          <Card className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">Allocation</p>
@@ -92,7 +92,7 @@ export default async function PortfolioSection({
 
             <ul className="mt-4 space-y-2" aria-label="Asset allocation breakdown">
               {allocations.map((item) => (
-                <li key={item.name} className="flex items-center justify-between gap-3 rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
+                <li key={item.name} className="flex items-center justify-between gap-3 rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
                   <div className="flex items-center gap-2">
                     <span className={`h-2.5 w-2.5 rounded-full ${item.color}`} aria-hidden="true" />
                     <span className="text-sm text-[var(--text)]">{item.name}</span>
@@ -106,7 +106,7 @@ export default async function PortfolioSection({
             </ul>
           </Card>
 
-          <Card className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4 shadow-none">
+          <Card className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">Daily performance</p>
@@ -119,7 +119,7 @@ export default async function PortfolioSection({
 
             <ul className="mt-4 space-y-2" aria-label="Performance snapshots">
               {performance.length ? performance.map((item) => (
-                <li key={item.label} className="flex items-center justify-between rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
+                <li key={item.label} className="flex items-center justify-between rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
                   <span className="text-sm text-[var(--muted)]">{item.label}</span>
                   <span className={`text-sm font-medium ${item.positive ? "text-[var(--success)]" : "text-[var(--danger)]"}`}>
                     {item.value}
@@ -138,7 +138,7 @@ export default async function PortfolioSection({
             </ul>
           </Card>
 
-          <Card className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4 shadow-none">
+          <Card className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">Asset distribution</p>
@@ -149,7 +149,7 @@ export default async function PortfolioSection({
               </div>
             </div>
 
-            <div className="mt-4 rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] p-3">
+            <div className="mt-4 rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] p-3">
               <div className="h-2 overflow-hidden rounded-full bg-[color:var(--surface)]" role="img" aria-label="Asset distribution chart">
                 <div className="flex h-full">
                   <div className="h-full w-[45%] rounded-l-full bg-[var(--primary)]" />

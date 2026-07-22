@@ -40,7 +40,7 @@ export default function SignupPage() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="John Doe"
-            className="w-full rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-4 py-2.5 text-[var(--text-body)] text-[var(--text)] outline-none transition focus:border-[color:var(--primary)] focus:ring-1 focus:ring-[color:var(--primary)]"
+            className="w-full rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-4 py-2.5 text-[var(--text-body)] text-[var(--text)] outline-none transition focus:border-[color:var(--primary)] focus:ring-1 focus:ring-[color:var(--primary)]"
           />
         </div>
 
@@ -55,7 +55,7 @@ export default function SignupPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="name@example.com"
-            className="w-full rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-4 py-2.5 text-[var(--text-body)] text-[var(--text)] outline-none transition focus:border-[color:var(--primary)] focus:ring-1 focus:ring-[color:var(--primary)]"
+            className="w-full rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-4 py-2.5 text-[var(--text-body)] text-[var(--text)] outline-none transition focus:border-[color:var(--primary)] focus:ring-1 focus:ring-[color:var(--primary)]"
           />
         </div>
 
@@ -71,12 +71,12 @@ export default function SignupPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Min. 8 characters"
-            className="w-full rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-4 py-2.5 text-[var(--text-body)] text-[var(--text)] outline-none transition focus:border-[color:var(--primary)] focus:ring-1 focus:ring-[color:var(--primary)]"
+            className="w-full rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-4 py-2.5 text-[var(--text-body)] text-[var(--text)] outline-none transition focus:border-[color:var(--primary)] focus:ring-1 focus:ring-[color:var(--primary)]"
           />
         </div>
 
         {error ? (
-          <p className="rounded-[8px] border border-[color:var(--danger)]/20 bg-[color:var(--danger)]/5 px-4 py-2.5 text-[var(--text-small)] text-[var(--danger)]">
+          <p className="rounded-[var(--radius)] border border-[color:var(--danger)]/20 bg-[color:var(--danger)]/5 px-4 py-2.5 text-[var(--text-small)] text-[var(--danger)]">
             {error}
           </p>
         ) : null}
@@ -84,7 +84,7 @@ export default function SignupPage() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full rounded-[8px] bg-[var(--primary)] px-4 py-2.5 text-[var(--text-body)] font-semibold text-white transition hover:bg-[var(--primary-soft)] disabled:cursor-not-allowed disabled:opacity-70"
+          className="w-full rounded-[var(--radius)] bg-[var(--primary)] px-4 py-2.5 text-[var(--text-body)] font-semibold text-white transition hover:bg-[var(--primary-soft)] disabled:cursor-not-allowed disabled:opacity-70"
         >
           {isLoading ? "Creating account…" : "Create account"}
         </button>

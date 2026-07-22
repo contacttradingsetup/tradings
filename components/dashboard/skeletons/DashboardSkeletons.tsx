@@ -4,13 +4,13 @@ export function KPICardsSkeleton() {
   return (
     <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
       {Array.from({ length: 4 }).map((_, index) => (
-        <div key={index} className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
+        <div key={index} className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1 space-y-2">
               <Skeleton className="h-2.5 w-20" />
               <Skeleton className="h-5 w-28" />
             </div>
-            <Skeleton className="h-8 w-8 rounded-[8px]" />
+            <Skeleton className="h-8 w-8 rounded-[var(--radius)]" />
           </div>
           <div className="mt-4 flex items-center justify-between">
             <Skeleton className="h-3 w-20" />
@@ -24,7 +24,7 @@ export function KPICardsSkeleton() {
 
 export function TradingChartSkeleton() {
   return (
-    <div className="overflow-hidden rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)]">
+    <div className="overflow-hidden rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)]">
       <div className="flex items-center justify-between border-b border-[color:var(--border)] bg-[color:var(--surface-strong)] px-4 py-3 sm:px-5">
         <div className="space-y-2">
           <Skeleton className="h-2.5 w-16" />
@@ -37,7 +37,7 @@ export function TradingChartSkeleton() {
         </div>
       </div>
       <div className="p-3 sm:p-4">
-        <div className="rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] p-3">
+        <div className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] p-3">
           <Skeleton className="h-[560px] w-full sm:h-[700px]" />
         </div>
       </div>
@@ -47,7 +47,7 @@ export function TradingChartSkeleton() {
 
 export function WatchlistSkeleton() {
   return (
-    <div className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
+    <div className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
       <div className="flex items-center justify-between">
         <div className="space-y-2">
           <Skeleton className="h-2.5 w-20" />
@@ -57,7 +57,7 @@ export function WatchlistSkeleton() {
       </div>
       <div className="mt-4 space-y-2">
         {Array.from({ length: 4 }).map((_, index) => (
-          <div key={index} className="flex items-center justify-between rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
+          <div key={index} className="flex items-center justify-between rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
             <div className="space-y-1.5">
               <Skeleton className="h-3 w-8" />
               <Skeleton className="h-2.5 w-16" />
@@ -77,7 +77,7 @@ export function NewsSkeleton() {
   return (
     <div className="space-y-2">
       {Array.from({ length: 3 }).map((_, index) => (
-        <div key={index} className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
+        <div key={index} className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
           <div className="flex items-center justify-between gap-3">
             <Skeleton className="h-6 w-16 rounded-full" />
             <Skeleton className="h-3 w-16" />
@@ -99,7 +99,7 @@ export function NewsSkeleton() {
 
 export function TableSkeleton() {
   return (
-    <div className="overflow-hidden rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)]">
+    <div className="overflow-hidden rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)]">
       <div className="grid grid-cols-[1.2fr_0.7fr_0.7fr_0.7fr] border-b border-[color:var(--border)] px-3 py-2.5">
         <Skeleton className="h-3 w-16" />
         <Skeleton className="ml-auto h-3 w-12" />
@@ -134,7 +134,7 @@ export function PortfolioSkeleton() {
       </div>
 
       <div className="grid gap-4 xl:grid-cols-[1.25fr_0.75fr]">
-        <div className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
+        <div className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
           <div className="flex items-center justify-between">
             <div className="space-y-2">
               <Skeleton className="h-2.5 w-20" />
@@ -148,7 +148,7 @@ export function PortfolioSkeleton() {
         </div>
 
         <div className="space-y-4">
-          <div className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
+          <div className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
             <div className="flex items-center justify-between">
               <div className="space-y-2">
                 <Skeleton className="h-2.5 w-20" />
@@ -158,7 +158,7 @@ export function PortfolioSkeleton() {
             </div>
             <div className="mt-4 space-y-2">
               {Array.from({ length: 4 }).map((_, index) => (
-                <div key={index} className="flex items-center justify-between rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
+                <div key={index} className="flex items-center justify-between rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2.5">
                   <Skeleton className="h-3 w-8" />
                   <Skeleton className="h-3 w-16" />
                 </div>
@@ -166,8 +166,8 @@ export function PortfolioSkeleton() {
             </div>
           </div>
 
-          <div className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
-            <Skeleton className="h-24 w-full rounded-[8px]" />
+          <div className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
+            <Skeleton className="h-24 w-full rounded-[var(--radius)]" />
           </div>
         </div>
       </div>

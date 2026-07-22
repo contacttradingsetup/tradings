@@ -49,3 +49,12 @@ marketRoutes.get("/summary", (c) => c.json(mockSummary));
 marketRoutes.get("/fear-greed", (c) => c.json(mockFearGreed));
 marketRoutes.get("/calendar", (c) => c.json(mockCalendar));
 marketRoutes.get("/coins", (c) => c.json(mockCoins));
+
+// Overview metrics
+const mockOverview = [
+  { title: "Portfolio Value", value: "$128,420", change: "+$2,480 today", trend: "+3.2%", positive: true, icon: "DollarSign", iconBg: "bg-[color:var(--surface)] text-[var(--primary)]" },
+  { title: "Today's Profit & Loss", value: "+$3,840", change: "+$124 vs yesterday", trend: "+2.8%", positive: true, icon: "ArrowUpRight", iconBg: "bg-[color:var(--surface)] text-[var(--success)]" },
+  { title: "Open Positions", value: "14", change: "6 long / 8 short", trend: "Stable", positive: true, icon: "BriefcaseBusiness", iconBg: "bg-[color:var(--surface)] text-[var(--text)]" },
+  { title: "Win Rate", value: "68.4%", change: "+4.1% this month", trend: "+1.3%", positive: true, icon: "Target", iconBg: "bg-[color:var(--surface)] text-[var(--muted)]" },
+];
+marketRoutes.get("/overview", (c) => c.json(mockOverview));

@@ -1,7 +1,5 @@
 // ── WebSocket Hook ──
 // Manages WebSocket connection lifecycle, reconnection, and fallback to polling.
-// Phase 6: connects to PriceHub Durable Object
-// Phase 8: receives real market data
 
 "use client";
 
@@ -11,19 +9,20 @@ import { config } from "@/lib";
 type ConnectionStatus = "disconnected" | "connecting" | "connected" | "reconnecting";
 
 interface UseWebSocketOptions {
-  onPrice?: (symbol: string, price: string, change: string) => void;
+  onPrice?: (symbol: string, price: string, change: string, positive: boolean) => void;
   onStatusChange?: (status: ConnectionStatus) => void;
   reconnectInterval?: number;
-  maxRetries?: number;
+  /** Polling callback invoked each interval when WebSocket is disconnected */
+  onPoll?: () => void;
 }
 
 export function useWebSocket({
   onPrice,
   onStatusChange,
   reconnectInterval = 2000,
-  maxRetries = 3,
+  onPoll,
 }: UseWebSocketOptions = {}) {
-  const [status, setStatus] = useState<ConnectionStatus>("disconnected");
+  const [status, setStatus] = useState<ConnectionStatus>("connecting");
   const wsRef = useRef<WebSocket | null>(null);
   const retriesRef = useRef(0);
   const reconnectTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -31,22 +30,16 @@ export function useWebSocket({
   const mountedRef = useRef(true);
   const connectRef = useRef<() => void>(() => {});
 
-  // Store functions in refs to avoid circular dependency issues
-  const startPollingRef = useRef<() => void>(() => {});
-  const stopPollingRef = useRef<() => void>(() => {});
+  const startPolling = useCallback(() => {
+    if (pollTimerRef.current || !onPoll) return;
+    pollTimerRef.current = setInterval(() => onPoll(), 5000);
+  }, [onPoll]);
 
-  // Update polling refs in an effect (not during render)
-  useEffect(() => {
-    startPollingRef.current = () => {
-      if (pollTimerRef.current) return;
-      pollTimerRef.current = setInterval(() => {}, 5000);
-    };
-    stopPollingRef.current = () => {
-      if (pollTimerRef.current) {
-        clearInterval(pollTimerRef.current);
-        pollTimerRef.current = null;
-      }
-    };
+  const stopPolling = useCallback(() => {
+    if (pollTimerRef.current) {
+      clearInterval(pollTimerRef.current);
+      pollTimerRef.current = null;
+    }
   }, []);
 
   const updateStatus = useCallback(
@@ -61,6 +54,7 @@ export function useWebSocket({
     if (wsRef.current?.readyState === WebSocket.OPEN) return;
 
     updateStatus(retriesRef.current > 0 ? "reconnecting" : "connecting");
+    stopPolling();
 
     try {
       const ws = new WebSocket(config.api.wsUrl);
@@ -78,7 +72,7 @@ export function useWebSocket({
           const msg = JSON.parse(event.data as string);
           if (msg.type === "prices" && Array.isArray(msg.updates)) {
             for (const update of msg.updates) {
-              onPrice?.(update.symbol, update.price, update.change);
+              onPrice?.(update.symbol, update.price, update.change, update.positive ?? update.change.startsWith("+"));
             }
           }
         } catch {
@@ -90,39 +84,36 @@ export function useWebSocket({
         if (!mountedRef.current) return;
         wsRef.current = null;
 
-        if (retriesRef.current < maxRetries) {
-          retriesRef.current++;
-          const delay = reconnectInterval * Math.pow(2, retriesRef.current - 1);
-          reconnectTimerRef.current = setTimeout(() => connectRef.current(), delay);
-          updateStatus("reconnecting");
-        } else {
-          updateStatus("disconnected");
-          startPollingRef.current();
-        }
+        // Infinite reconnect with exponential backoff, capped at 30s
+        retriesRef.current++;
+        const delay = Math.min(reconnectInterval * Math.pow(1.5, Math.min(retriesRef.current - 1, 8)), 30000);
+        reconnectTimerRef.current = setTimeout(() => connectRef.current(), delay);
+        updateStatus("reconnecting");
+        startPolling();
       };
 
       ws.onerror = () => {
         ws.close();
       };
     } catch {
-      updateStatus("disconnected");
+      updateStatus("reconnecting");
     }
-  }, [onPrice, updateStatus, reconnectInterval, maxRetries]);
+  }, [onPrice, updateStatus, reconnectInterval, startPolling, stopPolling]);
 
   // Store connect in ref for recursive reconnection calls
   useEffect(() => { connectRef.current = connect; }, [connect]);
 
   const disconnect = useCallback(() => {
-    stopPollingRef.current();
+    stopPolling();
     if (reconnectTimerRef.current) {
       clearTimeout(reconnectTimerRef.current);
       reconnectTimerRef.current = null;
     }
-    retriesRef.current = maxRetries;
+    retriesRef.current = 999;
     wsRef.current?.close();
     wsRef.current = null;
     updateStatus("disconnected");
-  }, [updateStatus, maxRetries]);
+  }, [updateStatus, stopPolling]);
 
   const subscribe = useCallback((symbols: string[]) => {
     if (wsRef.current?.readyState === WebSocket.OPEN && symbols.length > 0) {

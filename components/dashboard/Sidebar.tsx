@@ -62,7 +62,7 @@ export default function Sidebar() {
                 <Link
                   href={menu.href}
                   aria-current={active ? "page" : undefined}
-                  className={`motion-safe-transition group relative flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-sm ${
+                  className={`motion-safe-transition group relative flex items-center gap-3 rounded-[var(--radius)] px-3 py-2.5 text-sm ${
                     active
                       ? "bg-[color:var(--surface)] text-[var(--text)]"
                       : "text-[var(--muted)] hover:-translate-y-[1px] hover:bg-[color:var(--surface)] hover:text-[var(--text)]"

@@ -10,8 +10,8 @@ export default function DashboardLoading() {
       <div className="flex flex-col gap-4 border-b border-[color:var(--border)] pb-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="space-y-2">
           <div className="skeleton-shimmer h-3 w-24 rounded-full bg-[color:var(--surface)]" />
-          <div className="skeleton-shimmer h-8 w-56 rounded-[8px] bg-[color:var(--surface)]" />
-          <div className="skeleton-shimmer h-4 w-96 rounded-[8px] bg-[color:var(--surface)]" />
+          <div className="skeleton-shimmer h-8 w-56 rounded-[var(--radius)] bg-[color:var(--surface)]" />
+          <div className="skeleton-shimmer h-4 w-96 rounded-[var(--radius)] bg-[color:var(--surface)]" />
         </div>
         <div className="skeleton-shimmer h-10 w-48 rounded-[var(--radius)] bg-[color:var(--surface)]" />
       </div>

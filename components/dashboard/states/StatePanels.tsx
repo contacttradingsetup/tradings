@@ -9,7 +9,7 @@ export function EmptyState({
   onAction,
 }: EmptyStateProps) {
   return (
-    <div className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-5 text-center">
+    <div className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-5 text-center">
       <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--background)] text-[var(--primary)]">
         <Icon size={16} />
       </div>
@@ -19,7 +19,7 @@ export function EmptyState({
         <button
           type="button"
           onClick={onAction}
-          className="motion-safe-transition mt-4 inline-flex items-center justify-center rounded-[8px] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2 text-[12px] font-medium text-[var(--text)] hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40"
+          className="motion-safe-transition mt-4 inline-flex items-center justify-center rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-2 text-[12px] font-medium text-[var(--text)] hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40"
         >
           {actionLabel}
         </button>
@@ -35,7 +35,7 @@ export function ErrorState({
   onAction,
 }: ErrorStateProps) {
   return (
-    <div className="rounded-[10px] border border-[color:var(--danger)]/30 bg-[color:var(--surface)] p-5 text-center">
+    <div className="rounded-[var(--radius)] border border-[color:var(--danger)]/30 bg-[color:var(--surface)] p-5 text-center">
       <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--danger)]/20 bg-[color:var(--background)] text-[var(--danger)]">
         <AlertCircle size={16} />
       </div>
@@ -45,7 +45,7 @@ export function ErrorState({
         <button
           type="button"
           onClick={onAction}
-          className="motion-safe-transition mt-4 inline-flex items-center justify-center gap-2 rounded-[8px] border border-[color:var(--danger)]/20 bg-[color:var(--background)] px-3 py-2 text-[12px] font-medium text-[var(--text)] hover:-translate-y-[1px]"
+          className="motion-safe-transition mt-4 inline-flex items-center justify-center gap-2 rounded-[var(--radius)] border border-[color:var(--danger)]/20 bg-[color:var(--background)] px-3 py-2 text-[12px] font-medium text-[var(--text)] hover:-translate-y-[1px]"
         >
           <RefreshCcw size={14} />
           {actionLabel}

@@ -11,7 +11,7 @@ export default function OverviewCard({
   iconBg,
 }: OverviewCardProps) {
   return (
-    <Card className="h-full rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4 shadow-none transition-colors duration-180 ease-out hover:border-[color:var(--primary)]/40">
+    <Card className="h-full rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4 transition-colors duration-180 ease-out hover:border-[color:var(--primary)]/40">
       <div className="flex h-full flex-col gap-4">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
@@ -19,7 +19,7 @@ export default function OverviewCard({
             <p className="mt-2 tabular-nums text-[20px] font-bold leading-6 text-[var(--text)]">{value}</p>
           </div>
 
-          <div className={`grid h-8 w-8 place-items-center rounded-[8px] ${iconBg}`} aria-hidden="true">
+          <div className={`grid h-8 w-8 place-items-center rounded-[var(--radius)] ${iconBg}`} aria-hidden="true">
             <Icon size={15} />
           </div>
         </div>

@@ -23,7 +23,7 @@ export default async function NewsSection() {
         {news.length ? news.map((item) => (
           <li key={item.title}>
             <Link href={item.href} className="block">
-              <Card className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4 shadow-none hover:border-[color:var(--primary)]/30">
+              <Card className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4 hover:border-[color:var(--primary)]/30">
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center justify-between gap-3">
                     <span className="rounded-full border border-[color:var(--border)] bg-[color:var(--background)] px-2.5 py-1 text-[10px] uppercase tracking-[0.24em] text-[var(--muted)]">

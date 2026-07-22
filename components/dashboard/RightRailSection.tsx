@@ -12,7 +12,7 @@ export default function RightRailSection({
 
   return (
     <section aria-labelledby={headingId}>
-      <Card className="rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] p-4 shadow-none">
+      <Card className="rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] p-4">
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--muted)]">{title}</p>

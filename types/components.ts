@@ -50,6 +50,8 @@ export interface ChartToolbarProps {
   change?: string;
   timeframes?: string[];
   activeTimeframe?: string;
+  onTimeframeChange?: (timeframe: string, interval: string) => void;
+  onFullscreen?: () => void;
 }
 
 export interface OverviewCardProps {

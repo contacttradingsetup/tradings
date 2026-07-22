@@ -51,7 +51,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsMenuOpen((value) => !value)}
-            className="motion-safe-transition inline-flex h-10 w-10 items-center justify-center rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] text-[var(--text)] hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40 lg:hidden"
+            className="motion-safe-transition inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] text-[var(--text)] hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40 lg:hidden"
             aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
@@ -72,7 +72,7 @@ export default function Header() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 aria-label="Search market, symbol, or idea"
-                className="motion-safe-transition h-10 w-full rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] pl-9 pr-20 text-sm text-[var(--text)] outline-none focus:border-[color:var(--primary)] focus:shadow-[0_0_0_1px_rgba(37,99,235,0.18)] focus:-translate-y-[1px]"
+                className="motion-safe-transition h-10 w-full rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] pl-9 pr-20 text-sm text-[var(--text)] outline-none focus:border-[color:var(--primary)] focus:shadow-[0_0_0_1px_rgba(37,99,235,0.18)] focus:-translate-y-[1px]"
               />
               <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-[color:var(--border)] bg-[color:var(--panel)] px-2 py-1 text-[10px] uppercase tracking-[0.24em] text-[var(--muted)]">
                 Ctrl K
@@ -102,7 +102,7 @@ export default function Header() {
             <button
               type="button"
               aria-label="Open account options"
-              className="motion-safe-transition flex items-center gap-3 rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-2 hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40"
+              className="motion-safe-transition flex items-center gap-3 rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-2 hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40"
             >
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--primary)] text-sm font-semibold text-white">
                 {user.initials}
@@ -130,7 +130,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="motion-safe-transition block rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-2.5 text-sm text-[var(--text)] hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40"
+                  className="motion-safe-transition block rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-2.5 text-sm text-[var(--text)] hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40"
                 >
                   {item.title}
                 </Link>
@@ -160,7 +160,7 @@ function IconButton({
       onClick={onClick}
       aria-label={ariaLabel}
       aria-pressed={ariaPressed}
-      className="motion-safe-transition flex h-10 w-10 items-center justify-center rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] text-[var(--text)] hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40"
+      className="motion-safe-transition flex h-10 w-10 items-center justify-center rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] text-[var(--text)] hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40"
     >
       {children}
     </button>
@@ -169,7 +169,7 @@ function IconButton({
 
 function Ticker({ symbol, price, up }: TickerData) {
   return (
-    <div className="motion-safe-transition rounded-[10px] border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-2 hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40">
+    <div className="motion-safe-transition rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--surface)] px-3 py-2 hover:-translate-y-[1px] hover:border-[color:var(--primary)]/40">
       <p className="text-[10px] uppercase tracking-[0.24em] text-[var(--muted)]">{symbol}</p>
       <p className="mt-1 text-sm font-semibold text-[var(--text)]">{price}</p>
       <p className={`mt-1 text-[11px] ${up ? "text-[var(--success)]" : "text-[var(--danger)]"}`}>

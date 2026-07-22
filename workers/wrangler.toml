@@ -1,0 +1,23 @@
+name = "tradings-api"
+main = "src/index.ts"
+compatibility_date = "2025-07-21"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tradings-db"
+database_id = "tradings-db-dev"
+
+[[r2_buckets]]
+binding = "STORAGE"
+bucket_name = "tradings-assets"
+
+[[durable_objects.bindings]]
+name = "PRICE_HUB"
+class_name = "PriceHub"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["PriceHub"]

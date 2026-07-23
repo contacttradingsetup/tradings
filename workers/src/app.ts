@@ -25,6 +25,3 @@ app.route("/", wsRoutes);
 app.route("/api/auth", authRoutes);
 
 export default app;
-
-// Export Durable Objects for wrangler
-export { PriceHub } from "./durable/PriceHub";

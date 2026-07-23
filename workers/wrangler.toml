@@ -2,8 +2,8 @@ name = "tradings-api"
 main = "src/index.ts"
 compatibility_date = "2025-07-21"
 
-[env.production]
-vars = { ENVIRONMENT = "production" }
+[vars]
+ENVIRONMENT = "production"
 
 [[d1_databases]]
 binding = "DB"

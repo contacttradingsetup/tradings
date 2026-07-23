@@ -11,10 +11,25 @@ const DEFAULT_INTERVAL = "60"; // 1H
 export default function TradingChart() {
   const container = useRef<HTMLDivElement>(null);
   const [interval, setInterval] = useState(DEFAULT_INTERVAL);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const handleTimeframeChange = useCallback((_timeframe: string, newInterval: string) => {
     setInterval(newInterval);
   }, []);
+
+  const toggleFullscreen = useCallback(() => {
+    setIsFullscreen((prev) => !prev);
+  }, []);
+
+  // Close fullscreen on Esc
+  useEffect(() => {
+    if (!isFullscreen) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsFullscreen(false);
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [isFullscreen]);
 
   useEffect(() => {
     if (!container.current) return;
@@ -58,9 +73,19 @@ export default function TradingChart() {
   }, [interval]);
 
   return (
-    <section className="overflow-hidden rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)]">
-      <ChartToolbar onTimeframeChange={handleTimeframeChange} />
-      <div className="tradingview-widget-container h-[640px] w-full sm:h-[700px] lg:h-[760px]" ref={container} />
+    <section
+      className={
+        isFullscreen
+          ? "fixed inset-0 z-50 flex flex-col bg-[var(--background)]"
+          : "overflow-hidden rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)]"
+      }
+    >
+      <ChartToolbar
+        onTimeframeChange={handleTimeframeChange}
+        isFullscreen={isFullscreen}
+        onToggleFullscreen={toggleFullscreen}
+      />
+      <div className="tradingview-widget-container flex-1 w-full" ref={container} />
     </section>
   );
 }

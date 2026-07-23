@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { ChevronDown, Maximize2, Minimize2 } from "lucide-react";
 import type { ChartToolbarProps } from "@/types";
 
@@ -20,10 +20,10 @@ export default function ChartToolbar({
   timeframes = ["1D", "1W", "1M", "3M", "1Y", "All"],
   activeTimeframe: initialTimeframe = "1D",
   onTimeframeChange,
-  onFullscreen,
+  isFullscreen = false,
+  onToggleFullscreen,
 }: ChartToolbarProps) {
   const [active, setActive] = useState(initialTimeframe);
-  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const handleTimeframe = useCallback(
     (frame: string) => {
@@ -32,28 +32,6 @@ export default function ChartToolbar({
     },
     [onTimeframeChange]
   );
-
-  const toggleFullscreen = useCallback(async () => {
-    try {
-      if (!document.fullscreenElement) {
-        await document.documentElement.requestFullscreen();
-        setIsFullscreen(true);
-      } else {
-        await document.exitFullscreen();
-        setIsFullscreen(false);
-      }
-      onFullscreen?.();
-    } catch {
-      // Fullscreen not supported
-    }
-  }, [onFullscreen]);
-
-  // Listen for Esc key to update state
-  useEffect(() => {
-    const handler = () => setIsFullscreen(!!document.fullscreenElement);
-    document.addEventListener("fullscreenchange", handler);
-    return () => document.removeEventListener("fullscreenchange", handler);
-  }, []);
 
   return (
     <div className="flex flex-col gap-3 border-b border-[color:var(--border)] bg-[color:var(--sidebar)] px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
@@ -93,7 +71,7 @@ export default function ChartToolbar({
 
         <button
           type="button"
-          onClick={toggleFullscreen}
+          onClick={onToggleFullscreen}
           className="inline-flex items-center gap-2 rounded-[var(--radius)] border border-[color:var(--border)] bg-[color:var(--background)] px-3 py-1.5 text-[11px] font-medium text-[var(--muted)] transition hover:border-[color:var(--primary)]/40 hover:text-[var(--text)]"
         >
           {isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}

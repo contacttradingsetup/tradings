@@ -5,6 +5,8 @@ import { ChevronDown, Maximize2, Minimize2 } from "lucide-react";
 import type { ChartToolbarProps } from "@/types";
 
 const TIMEFRAME_MAP: Record<string, string> = {
+  "1m": "1",
+  "1H": "60",
   "1D": "5",
   "1W": "60",
   "1M": "240",
@@ -17,7 +19,7 @@ export default function ChartToolbar({
   symbol = "BTC / USD",
   price = "$67,892.45",
   change = "+2.14% today",
-  timeframes = ["1D", "1W", "1M", "3M", "1Y", "All"],
+  timeframes = ["1m", "1H", "1D", "1W", "1M", "3M", "1Y", "All"],
   activeTimeframe: initialTimeframe = "1D",
   onTimeframeChange,
   isFullscreen = false,

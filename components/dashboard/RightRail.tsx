@@ -8,7 +8,7 @@ import {
   CircleDollarSign,
   ListFilter,
   TrendingUp,
-} from "lucide-react";
+} from "@/components/ui/Icons";
 import {
   getWatchlist, getTopMovers, getMarketSummary,
   getFearGreed, getCalendar,

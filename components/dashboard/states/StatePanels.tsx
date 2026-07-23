@@ -1,3 +1,5 @@
+"use client";
+
 import { AlertCircle, RefreshCcw, SearchX } from "lucide-react";
 import type { EmptyStateProps, ErrorStateProps, EmptySearchStateProps } from "@/types";
 

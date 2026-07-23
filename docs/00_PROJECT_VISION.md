@@ -78,8 +78,6 @@ Stripe Dashboard
 
 Apple
 
-Vercel
-
 Do not copy.
 
 Create an original identity.

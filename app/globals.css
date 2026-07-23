@@ -4,7 +4,9 @@
 
 :root {
   /* Background hierarchy — deep navy with blue chroma */
-  --background:      #0A0F1A;
+  --background:      #0B0F17;
+  --bg-start:        #0B0F17;
+  --bg-end:          #0F172A;
   --sidebar:         #0C1222;
   --panel:           #0C1222;
   --surface:         #121A2A;
@@ -69,6 +71,8 @@
 
 .theme-light {
   --background:      #f8fafc;
+  --bg-start:        #f8fafc;
+  --bg-end:          #f1f5f9;
   --sidebar:         #f1f5f9;
   --panel:           #f1f5f9;
   --surface:         #ffffff;

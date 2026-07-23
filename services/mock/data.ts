@@ -11,7 +11,7 @@ import type {
 
 import {
   ArrowUpRight, BriefcaseBusiness, DollarSign, Target,
-} from "lucide-react";
+} from "@/components/ui/Icons";
 
 // ── Overview KPIs ──
 

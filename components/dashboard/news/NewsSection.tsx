@@ -1,5 +1,5 @@
 import Card from "@/components/ui/Card";
-import { Newspaper } from "lucide-react";
+import { Newspaper } from "@/components/ui/Icons";
 import Link from "next/link";
 import { NewsSkeleton } from "../skeletons/DashboardSkeletons";
 import { EmptyState, ErrorState } from "../states/StatePanels";

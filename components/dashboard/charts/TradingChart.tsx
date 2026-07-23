@@ -59,7 +59,7 @@ export default function TradingChart() {
       save_image: false,
       details: false,
       studies_overrides: {},
-      supported_resolutions: ["5", "15", "60", "240", "D", "W"],
+      supported_resolutions: ["1", "5", "15", "60", "240", "D", "W"],
       overrides: {
         "paneProperties.background": "#0A0F1A",
         "paneProperties.vertGridProperties.color": "#1A2333",

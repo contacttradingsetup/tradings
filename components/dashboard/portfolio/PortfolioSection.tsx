@@ -1,5 +1,5 @@
 import Card from "@/components/ui/Card";
-import { ArrowUpRight, ArrowDownRight, PieChart, TrendingUp, Wallet2 } from "lucide-react";
+import { ArrowUpRight, ArrowDownRight, PieChart, TrendingUp, Wallet2 } from "@/components/ui/Icons";
 import { PortfolioSkeleton, TableSkeleton } from "../skeletons/DashboardSkeletons";
 import { EmptyState, ErrorState } from "../states/StatePanels";
 import type { PortfolioSectionProps } from "@/types";

@@ -90,7 +90,6 @@ The design language may take inspiration from:
 - Bloomberg Terminal (modern interpretation)
 - Linear
 - Stripe Dashboard
-- Vercel Dashboard
 - Apple Human Interface Guidelines
 
 Never clone another product.

@@ -43,3 +43,5 @@ next-env.d.ts
 # dependencies
 /node_modules
 workers/node_modules/
+
+.vercel

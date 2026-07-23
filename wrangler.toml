@@ -1,13 +1,13 @@
-# Cloudflare Pages configuration for Tradings
-# Frontend: Next.js deployed to Cloudflare Pages
-# Backend: Workers deployed separately from /workers directory
-
 name = "tradings"
+main = ".open-next/worker/index.mjs"
 compatibility_date = "2025-07-21"
 
-# Pages-specific configuration
-[env.production]
-vars = { ENVIRONMENT = "production" }
+[vars]
+ENVIRONMENT = "production"
+
+[[assets]]
+directory = ".open-next/assets"
+binding = "ASSETS"
 
 # Routes - Next.js handles all frontend routes
 # API routes are handled by the Workers backend

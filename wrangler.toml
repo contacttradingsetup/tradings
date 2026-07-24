@@ -1,13 +1,10 @@
 name = "tradings"
-main = ".open-next/worker/index.mjs"
+main = ".open-next/worker.js"
 compatibility_date = "2025-07-21"
+compatibility_flags = ["nodejs_compat"]
 
 [vars]
 ENVIRONMENT = "production"
-
-[[assets]]
-directory = ".open-next/assets"
-binding = "ASSETS"
 
 # Routes - Next.js handles all frontend routes
 # API routes are handled by the Workers backend

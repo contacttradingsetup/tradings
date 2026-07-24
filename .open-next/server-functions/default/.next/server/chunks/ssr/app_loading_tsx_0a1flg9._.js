@@ -1,0 +1,3 @@
+module.exports=[63588,a=>{"use strict";var b=a.i(7997);a.s(["default",0,function(){return(0,b.jsx)("div",{className:"flex min-h-screen items-center justify-center bg-[var(--background)]",children:(0,b.jsxs)("div",{className:"flex flex-col items-center gap-4",children:[(0,b.jsx)("div",{className:"h-10 w-10 animate-spin rounded-full border-2 border-[color:var(--border)] border-t-[color:var(--primary)]"}),(0,b.jsx)("p",{className:"text-[var(--text-small)] text-[var(--muted)]",children:"Loading Tradings…"})]})})}])},45538,a=>{a.n(a.i(63588))}];
+
+//# sourceMappingURL=app_loading_tsx_0a1flg9._.js.map

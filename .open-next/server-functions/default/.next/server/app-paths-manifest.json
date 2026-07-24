@@ -1,0 +1,16 @@
+{
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(auth)/signup/page": "app/(auth)/signup/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/defi/page": "app/defi/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/futures/page": "app/futures/page.js",
+  "/markets/page": "app/markets/page.js",
+  "/page": "app/page.js",
+  "/portfolio/page": "app/portfolio/page.js",
+  "/settings/page": "app/settings/page.js",
+  "/spot/page": "app/spot/page.js",
+  "/watchlist/page": "app/watchlist/page.js"
+}

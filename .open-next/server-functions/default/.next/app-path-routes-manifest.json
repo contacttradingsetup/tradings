@@ -1,0 +1,16 @@
+{
+  "/(auth)/login/page": "/login",
+  "/(auth)/signup/page": "/signup",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/dashboard/page": "/dashboard",
+  "/defi/page": "/defi",
+  "/favicon.ico/route": "/favicon.ico",
+  "/futures/page": "/futures",
+  "/markets/page": "/markets",
+  "/page": "/",
+  "/portfolio/page": "/portfolio",
+  "/settings/page": "/settings",
+  "/spot/page": "/spot",
+  "/watchlist/page": "/watchlist"
+}

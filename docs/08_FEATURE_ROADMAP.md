@@ -125,3 +125,23 @@ Enterprise
 Tradings should become a complete financial operating system.
 
 Every new feature must move the project closer to this vision.
+
+---
+
+# Deployment & Infrastructure
+
+**Keep it simple. Do not over-engineer.**
+
+| Layer | Technology | Notes |
+|---|---|---|
+| Frontend | Next.js 16 | `npm run dev` for local development |
+| Data | Mock services (`services/mock/data.ts`) | Built-in, no external API needed |
+| Hosting | Cloudflare Pages | Connected to GitHub, auto-deploys on `git push` |
+| Domain | `tradings.ltd` | Pointed to Cloudflare Pages |
+
+**Rules:**
+- No separate backend API unless absolutely necessary
+- No OpenNext, no Wrangler, no Workers unless Cloudflare Pages is unavailable
+- `git push` is the only deploy step
+- Mock data is sufficient until real API is needed
+- All data fetching goes through `services/api/*.ts` → mock fallback pattern
